@@ -6,23 +6,26 @@ void reverseString(char* str) {
     if (str == nullptr) {
         return; // Handle null pointer here
     }
-    cout<<&str<<endl;
 
     char* start = str;
     char* end = str + strlen(str) - 1;
 
+/****Note*****/
+/*the pointer to character array don't give addresses as the string in c/c++ are null terminating strings
+when the pointer moves to next memory location it by default cout the characters from that location to the 
+null character location. that's why in this program the start and end are giving the characters not the addresses.
+However in previous binary search program the left and right pointers were giving the addresses.
+ */
     while (start < end) {
+        // cout<<"Addresses Before changing: "<<start<<"\t"<<end<<endl;
         // Swap the characters pointed to by start and end
         char temp = *start;
         *start = *end;
         *end = temp;
-
-        cout<<"Addresses Before changing: "<<start<<"\t"<<end<<endl;
-
         // here moving the adress of the vars of string
         start++;
         end--;
-        cout<<"Addresses After changing: "<<start<<"\t"<<end<<endl;
+        // cout<<"Addresses After changing: "<<start<<"\t"<<end<<endl;
 
     }
 }
@@ -36,7 +39,6 @@ int main() {
 
     // Reverse the input string
     reverseString(inputString);
-
     cout << "Reversed string: " << inputString << endl;
 
     return 0;

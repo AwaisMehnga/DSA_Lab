@@ -7,6 +7,7 @@ bool binarySearchFunction(int* arr, int size, int val) {
     int* right = arr + size - 1;
 
     while (left <= right) {
+        cout<<"Addresses Before changing: "<<left<<"\t"<<right<<endl;
         int* middle = left + (right - left) / 2;
 
         if (*middle == val) {
@@ -24,7 +25,7 @@ bool binarySearchFunction(int* arr, int size, int val) {
 int main() {
     int arr[] = {1, 3, 5, 7, 9, 11, 13, 15};
     int size = sizeof(arr) / sizeof(arr[0]);
-    int val = 12;
+    int val = 5;
 
     if (binarySearchFunction(arr, size, val)) {
         cout << "Your Element " << val << " found in the array." << endl;
