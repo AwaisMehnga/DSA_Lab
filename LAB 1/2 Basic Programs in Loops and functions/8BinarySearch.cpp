@@ -7,7 +7,7 @@ bool binarySearchFunction(int* arr, int size, int val) {
     int* right = arr + size - 1;
 
     while (left <= right) {
-        cout<<"Addresses Before changing: "<<left<<"\t"<<right<<endl;
+        // cout<<"Addresses Before changing: "<<left<<"\t"<<right<<endl;
         int* middle = left + (right - left) / 2;
 
         if (*middle == val) {
