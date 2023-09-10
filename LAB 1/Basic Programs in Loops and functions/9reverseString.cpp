@@ -17,7 +17,7 @@ null character location. that's why in this program the start and end are giving
 However in previous binary search program the left and right pointers were giving the addresses.
  */
     while (start < end) {
-        // cout<<"Addresses Before changing: "<<start<<"\t"<<end<<endl;
+
         // Swap the characters pointed to by start and end
         char temp = *start;
         *start = *end;
@@ -25,7 +25,6 @@ However in previous binary search program the left and right pointers were givin
         // here moving the adress of the vars of string
         start++;
         end--;
-        // cout<<"Addresses After changing: "<<start<<"\t"<<end<<endl;
 
     }
 }
