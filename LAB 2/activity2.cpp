@@ -39,6 +39,7 @@ class Singly {
   }
   // function to insert at start
   void insertAtStart(int val) {
+    
     // creating the node
     Node * newNode = new Node;
     newNode -> data = val;
@@ -422,32 +423,122 @@ class Circular {
   }
 };
 
+template <typename T>
+void list(T obj) {
+    int num;
+    start:
+          
+          cout<<"Which operation you want to perform:\n1: Insertion\n2: Deletion\n3: Display\n4: Reverse\n4: Seek\n5: Exit\n";
+          cin>>num;
+          switch (num)
+          {
+          case 1:
+                insertion(obj);
+                goto start;
+            break;
+          case 2:
+                deletion(obj);
+                goto start;
+          case 3:
+                display(obj);
+                goto start;
+          
+          default:
+            break;
+          }
+
+}
+template <typename I>
+void insertion(I obj){
+  
+  int val;
+  int num;
+  int pos;
+  cout<<"1: insertion at beginning\n2: insertion at end\n3: insertion at the specific data node\n";
+  cin>>num;
+  switch (num)
+  {
+  case 1:
+         cout<<"Enter value\n";
+         cin>>val;
+         obj.insertAtStart(val);
+    break;
+  case 2:
+         cout<<"Enter value\n";
+         cin>>val;
+         obj.insertAtEnd(val);
+    break;
+  case 3:
+         cout<<"Enter value : data\n";
+         cin>>val>>pos;
+         obj.insertAtDataNode(val,pos);
+    break;
+  
+  default:
+    break;
+  }
+}
+
+template<typename del>
+void deletion(del obj){
+
+  int val;
+  int num;
+  int pos;
+  cout<<"1: deletion at beginning\n2: deletion at end\n3: deletion at the specific data node\n";
+  cin>>num;
+  switch (num)
+  {
+  case 1:
+         obj.deleteAtStart();
+    break;
+  case 2:
+         obj.deleteAtEnd();
+    break;
+  case 3:
+         cout<<"Enter positional data\n";
+         cin>>pos;
+         obj.deleteDataIndex(pos);
+    break;
+  
+  default:
+    break;
+  }
+}
+
+template <typename D>
+void display(D obj){
+  cout<<"******Your List After Changing*****\n";
+  obj.display();
+  cout<<endl<<endl;
+  
+}
+
 
 int main() {
-    
+    Singly slist;
     Doubly dlist;
     Circular clist;
     static int num;
+    
 
     cout<<"Which linked list you want:\n1: Single\n2: Double\n3: Circular\n";
     cin>>num;
     switch (num)
     {
     case 1:
-            Singly slist;
+          list(slist);
         break;
     case 2:
-            Doubly slist;
+          list(dlist);
         break;
     case 3:
-            Circular slist;
+          list(clist);
+            
         break;
     
     default:
         break;
     }
-        
     
-    
-  
 }
