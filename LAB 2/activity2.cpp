@@ -117,6 +117,24 @@ class Singly {
 
         }
   }
+
+   void reverse()
+    {
+        // Initialize current, previous and next pointers
+        Node* current = start;
+        Node *prev = NULL, *next = NULL;
+ 
+        while (current != NULL) {
+            // Store next
+            next = current->next;
+            // Reverse current node's pointer
+            current->next = prev;
+            // Move pointers one position astart.
+            prev = current;
+            current = next;
+        }
+        start = prev;
+    }
   // Function to display the contents of the list
   void display() {
     Node * current = start;
@@ -273,6 +291,24 @@ class Doubly {
 
         }
   }
+  void reverse(){
+    NPNode* temp = NULL;
+    NPNode* current = start;
+ 
+    /* swap next and prev for all nodes of
+      doubly linked list */
+    while (current != NULL) {
+        temp = current->prev;
+        current->prev = current->next;
+        current->next = temp;
+        current = current->prev;
+    }
+ 
+    /* Before changing head, check for the cases like empty
+       list and list with only one node */
+    if (temp != NULL)
+        start = temp->prev;
+}
   // Function to display the contents of the list
   void display() {
     NPNode * current = start;
@@ -409,6 +445,30 @@ class Circular {
             temp = NULL;
         }
   }
+
+  void reverse()
+{
+    // if list is empty
+    if (start == NULL)
+        return;
+ 
+    // reverse procedure same as reversing a
+    // singly linked list
+    Node* prev = NULL;
+    Node* current = start;
+    Node* next;
+    do {
+        next = current->next;
+        current->next = prev;
+        prev = current;
+        current = next;
+    } while (current != (start));
+ 
+    // adjusting the links so as to make the
+    // last node point to the first node
+    (start)->next = prev;
+    start = prev;
+}
   // Function to display the contents of the list
   void display() {
     Node * current = start;
@@ -497,6 +557,10 @@ int main() {
             slist.display();
             goto start;
             break;
+        case 4:
+            slist.reverse();
+            goto start;
+            break;
         default:
             break;
         }
@@ -567,6 +631,10 @@ int main() {
             dlist.display();
             goto Dstart;
             break;
+        case 4:
+            dlist.reverse();
+            goto Dstart;
+            break;
         default:
             break;
         }
@@ -635,6 +703,11 @@ int main() {
             clist.display();
             goto Cstart;
             break;
+        case 4:
+            clist.reverse();
+            goto Cstart;
+            break;
+        
         default:
             break;
         }
