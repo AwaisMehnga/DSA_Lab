@@ -26,6 +26,7 @@ class Singly {
       }
       currentNode -> next = newNode;
     }
+    
   }
   //delete at the end
   void deleteAtEnd() {
@@ -406,9 +407,6 @@ class Circular {
             currentNode->next=currentNode->next->next;
             delete temp;
             temp = NULL;
-
-            
-
         }
   }
   // Function to display the contents of the list
@@ -423,122 +421,227 @@ class Circular {
   }
 };
 
-template <typename T>
-void list(T obj) {
-    int num;
-    start:
-          
-          cout<<"Which operation you want to perform:\n1: Insertion\n2: Deletion\n3: Display\n4: Reverse\n4: Seek\n5: Exit\n";
-          cin>>num;
-          switch (num)
-          {
-          case 1:
-                insertion(obj);
-                goto start;
-            break;
-          case 2:
-                deletion(obj);
-                goto start;
-          case 3:
-                display(obj);
-                goto start;
-          
-          default:
-            break;
-          }
-
-}
-template <typename I>
-void insertion(I obj){
-  
-  int val;
-  int num;
-  int pos;
-  cout<<"1: insertion at beginning\n2: insertion at end\n3: insertion at the specific data node\n";
-  cin>>num;
-  switch (num)
-  {
-  case 1:
-         cout<<"Enter value\n";
-         cin>>val;
-         obj.insertAtStart(val);
-    break;
-  case 2:
-         cout<<"Enter value\n";
-         cin>>val;
-         obj.insertAtEnd(val);
-    break;
-  case 3:
-         cout<<"Enter value : data\n";
-         cin>>val>>pos;
-         obj.insertAtDataNode(val,pos);
-    break;
-  
-  default:
-    break;
-  }
-}
-
-template<typename del>
-void deletion(del obj){
-
-  int val;
-  int num;
-  int pos;
-  cout<<"1: deletion at beginning\n2: deletion at end\n3: deletion at the specific data node\n";
-  cin>>num;
-  switch (num)
-  {
-  case 1:
-         obj.deleteAtStart();
-    break;
-  case 2:
-         obj.deleteAtEnd();
-    break;
-  case 3:
-         cout<<"Enter positional data\n";
-         cin>>pos;
-         obj.deleteDataIndex(pos);
-    break;
-  
-  default:
-    break;
-  }
-}
-
-template <typename D>
-void display(D obj){
-  cout<<"******Your List After Changing*****\n";
-  obj.display();
-  cout<<endl<<endl;
+void SinglyList(Singly list){
   
 }
-
 
 int main() {
     Singly slist;
     Doubly dlist;
     Circular clist;
-    static int num;
-    
-
-    cout<<"Which linked list you want:\n1: Single\n2: Double\n3: Circular\n";
-    cin>>num;
-    switch (num)
-    {
+    int num;
+    cout << "Which list do you want?\n1 Singly\n2 Doubly\n3 Circular\n";
+    cin >> num;
+    switch (num) {
     case 1:
-          list(slist);
+        start:
+        int opNum;
+        cout << "Which operation do you want to perform:"
+            << "\n1: Insertion"
+            << "\n2: Deletion"
+            << "\n3: Display"
+            << "\n4: Reverse"
+            << "\n5: Seek"
+            << "\n6: Exit\n";
+        cin >> opNum;
+        switch (opNum) {
+        case 1:
+            int funNum, val, pos;
+            cout << "Where to Delate:\n1: Insertion at beginning\n2: Insertion at end\n3: Insertion at a specific data node\n";
+            cin >> funNum;
+            cout << "Enter value: ";
+            cin >> val;
+            switch (funNum) {
+            case 1:
+                slist.insertAtStart(val);
+                goto start;
+                break;
+            case 2:
+                slist.insertAtEnd(val);
+                goto start;
+                break;
+            case 3:
+                cout << "Data Node: ";
+                cin >> pos;
+                slist.insertAtDataNode(val, pos);
+                goto start;
+                break;
+            default:
+                break;
+            }
+            break;
+        case 2:
+            int deleteFunNum;
+            cout << "Where to Delate:\n1: Deletion at beginning\n2: Deletion at end\n3: Deletion at a specific data node\n";
+            cin >> deleteFunNum;
+            switch (deleteFunNum) {
+            case 1:
+                slist.deleteAtStart();
+                goto start;
+                break;
+            case 2:
+                slist.deleteAtEnd();
+                goto start;
+                break;
+            case 3:
+                cout << "Data Node: ";
+                cin >> pos;
+                slist.deleteDataIndex(pos);
+                goto start;
+                break;
+            default:
+                break;
+            }
+            break;
+        case 3:
+            slist.display();
+            goto start;
+            break;
+        default:
+            break;
+        }
         break;
+      //case 2 for doubly
+
     case 2:
-          list(dlist);
+        start:
+        int opNum;
+        cout << "Which operation do you want to perform:"
+            << "\n1: Insertion"
+            << "\n2: Deletion"
+            << "\n3: Display"
+            << "\n4: Reverse"
+            << "\n5: Seek"
+            << "\n6: Exit\n";
+        cin >> opNum;
+        switch (opNum) {
+        case 1:
+            int funNum, val, pos;
+            cout << "Where to Delate:\n1: Insertion at beginning\n2: Insertion at end\n3: Insertion at a specific data node\n";
+            cin >> funNum;
+            cout << "Enter value: ";
+            cin >> val;
+            switch (funNum) {
+            case 1:
+                dlist.insertAtStart(val);
+                goto start;
+                break;
+            case 2:
+                dlist.insertAtEnd(val);
+                goto start;
+                break;
+            case 3:
+                cout << "Data Node: ";
+                cin >> pos;
+                dlist.insertAtDataNode(val, pos);
+                goto start;
+                break;
+            default:
+                break;
+            }
+            break;
+        case 2:
+            int deleteFunNum;
+            cout << "Where to Delate:\n1: Deletion at beginning\n2: Deletion at end\n3: Deletion at a specific data node\n";
+            cin >> deleteFunNum;
+            switch (deleteFunNum) {
+            case 1:
+                dlist.deleteAtStart();
+                goto start;
+                break;
+            case 2:
+                dlist.deleteAtEnd();
+                goto start;
+                break;
+            case 3:
+                cout << "Data Node: ";
+                cin >> pos;
+                dlist.deleteDataIndex(pos);
+                goto start;
+                break;
+            default:
+                break;
+            }
+            break;
+        case 3:
+            dlist.display();
+            goto start;
+            break;
+        default:
+            break;
+        }
         break;
-    case 3:
-          list(clist);
-            
-        break;
-    
+        // case 3 for circular
+      case 3:
+        start:
+        int opNum;
+        cout << "Which operation do you want to perform:"
+            << "\n1: Insertion"
+            << "\n2: Deletion"
+            << "\n3: Display"
+            << "\n4: Reverse"
+            << "\n5: Seek"
+            << "\n6: Exit\n";
+        cin >> opNum;
+        switch (opNum) {
+        case 1:
+            int funNum, val, pos;
+            cout << "Where to Delate:\n1: Insertion at beginning\n2: Insertion at end\n3: Insertion at a specific data node\n";
+            cin >> funNum;
+            cout << "Enter value: ";
+            cin >> val;
+            switch (funNum) {
+            case 1:
+                clist.insertAtStart(val);
+                goto start;
+                break;
+            case 2:
+                clist.insertAtEnd(val);
+                goto start;
+                break;
+            case 3:
+                cout << "Data Node: ";
+                cin >> pos;
+                clist.insertAtDataNode(val, pos);
+                goto start;
+                break;
+            default:
+                break;
+            }
+            break;
+        case 2:
+            int deleteFunNum;
+            cout << "Where to Delate:\n1: Deletion at beginning\n2: Deletion at end\n3: Deletion at a specific data node\n";
+            cin >> deleteFunNum;
+            switch (deleteFunNum) {
+            case 1:
+                clist.deleteAtStart();
+                goto start;
+                break;
+            case 2:
+                clist.deleteAtEnd();
+                goto start;
+                break;
+            case 3:
+                cout << "Data Node: ";
+                cin >> pos;
+                clist.deleteDataIndex(pos);
+                goto start;
+                break;
+            default:
+                break;
+            }
+            break;
+        case 3:
+            clist.display();
+            goto start;
+            break;
+        default:
+            break;
+        }
+        break; 
     default:
         break;
     }
-    
+    return 0;
 }
