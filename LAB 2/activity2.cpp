@@ -504,8 +504,8 @@ int main() {
       //case 2 for doubly
 
     case 2:
-        start:
-        int opNum;
+        Dstart:
+  
         cout << "Which operation do you want to perform:"
             << "\n1: Insertion"
             << "\n2: Deletion"
@@ -524,17 +524,17 @@ int main() {
             switch (funNum) {
             case 1:
                 dlist.insertAtStart(val);
-                goto start;
+                goto Dstart;
                 break;
             case 2:
                 dlist.insertAtEnd(val);
-                goto start;
+                goto Dstart;
                 break;
             case 3:
                 cout << "Data Node: ";
                 cin >> pos;
                 dlist.insertAtDataNode(val, pos);
-                goto start;
+                goto Dstart;
                 break;
             default:
                 break;
@@ -547,17 +547,17 @@ int main() {
             switch (deleteFunNum) {
             case 1:
                 dlist.deleteAtStart();
-                goto start;
+                goto Dstart;
                 break;
             case 2:
                 dlist.deleteAtEnd();
-                goto start;
+                goto Dstart;
                 break;
             case 3:
                 cout << "Data Node: ";
                 cin >> pos;
                 dlist.deleteDataIndex(pos);
-                goto start;
+                goto Dstart;
                 break;
             default:
                 break;
@@ -565,7 +565,7 @@ int main() {
             break;
         case 3:
             dlist.display();
-            goto start;
+            goto Dstart;
             break;
         default:
             break;
@@ -573,8 +573,7 @@ int main() {
         break;
         // case 3 for circular
       case 3:
-        start:
-        int opNum;
+        Cstart:
         cout << "Which operation do you want to perform:"
             << "\n1: Insertion"
             << "\n2: Deletion"
@@ -593,17 +592,17 @@ int main() {
             switch (funNum) {
             case 1:
                 clist.insertAtStart(val);
-                goto start;
+                goto Cstart;
                 break;
             case 2:
                 clist.insertAtEnd(val);
-                goto start;
+                goto Cstart;
                 break;
             case 3:
                 cout << "Data Node: ";
                 cin >> pos;
                 clist.insertAtDataNode(val, pos);
-                goto start;
+                goto Cstart;
                 break;
             default:
                 break;
@@ -616,17 +615,17 @@ int main() {
             switch (deleteFunNum) {
             case 1:
                 clist.deleteAtStart();
-                goto start;
+                goto Cstart;
                 break;
             case 2:
                 clist.deleteAtEnd();
-                goto start;
+                goto Cstart;
                 break;
             case 3:
                 cout << "Data Node: ";
                 cin >> pos;
                 clist.deleteDataIndex(pos);
-                goto start;
+                goto Cstart;
                 break;
             default:
                 break;
@@ -634,7 +633,7 @@ int main() {
             break;
         case 3:
             clist.display();
-            goto start;
+            goto Cstart;
             break;
         default:
             break;
